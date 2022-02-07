@@ -6,5 +6,6 @@ import com.martiniriarte.modelo.Usuario;
 
 public interface UsuarioDao extends JpaRepository<Usuario, Long> {
 
-	Usuario buscarPorUsuario(String usuario);
+	//Este metodo debe llamarse asi!!
+	Usuario findByUsername(String username);
 }

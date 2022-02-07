@@ -33,11 +33,11 @@ public class SeguridadConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/editar/**", "/agregar/**", "/eliminar")
 					.hasRole("ADMIN")
 				.antMatchers("/")
-					.hasAnyRole("ADMIN", "USER")
+					.hasAnyRole("USER", "ADMIN")
 				.and()
 					.formLogin()
 					.loginPage("/login")
 				.and()
-				 	.exceptionHandling().accessDeniedPage("errores/403");
+					.exceptionHandling().accessDeniedPage("/errores/403");
 	}
 }

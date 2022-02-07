@@ -20,10 +20,10 @@ public class Usuario implements Serializable {
 	private Long idUsuario;
 
 	@NotEmpty
-	private String usuario;
+	private String username;
 
 	@NotEmpty
-	private String contrasena;
+	private String password;
 
 	@OneToMany
 	@JoinColumn(name = "id_usuario")

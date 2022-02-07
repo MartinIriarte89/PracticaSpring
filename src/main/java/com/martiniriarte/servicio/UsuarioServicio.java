@@ -28,9 +28,9 @@ public class UsuarioServicio implements UserDetailsService {
 	@Override
 	@Transactional(readOnly = true)
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Usuario usuario =  usuarioDao.buscarPorUsuario(username);
-		
-		if(usuario == null) {
+		Usuario usuario = usuarioDao.findByUsername(username);
+
+		if (usuario == null) {
 			throw new UsernameNotFoundException(username);
 		}
 		
@@ -44,7 +44,7 @@ public class UsuarioServicio implements UserDetailsService {
 		}
 		
 		//Objeto user de Spring
-		return new User(usuario.getUsuario(), usuario.getContrasena(), roles);
+		return new User(usuario.getUsername(), usuario.getPassword(), roles);
 	}
 	
 }
