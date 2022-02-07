@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Plantilla</title>
+</head>
+<body>
+	<header th:fragment="header">
+		<h1 th:text="#{plantilla.titulo}">Titulo</h1>
+	</header>
+	<footer th:fragment="footer">
+		<div>
+			<br> <a th:href="@{/(lang=es)}">ES</a> | <a
+				th:href="@{/(lang=en)}">EN</a> | <span> <th:block
+					th:text="#{plantilla.pie-pagina}">Pie de Pagina</th:block><a
+				href="http://splashingpopcorn.jelastic.saveincloud.net/"
+				target="_blank">Splashingpopcorn.com</a></span> <br> <br>
+			<form method="POST" th:action="@{/logout}">
+				<b> <th:block th:text="#{persona.usuario} + ':'"></th:block> <span
+					sec:authentication="name">Usuario que hizo login</span> |
+				</b> <b>Roles:</b> <span sec:authentication="principal.authorities"></span>
+				|
+				<!-- Cualquiera de los dos funciona -->
+				<!-- <a href="#" onclick="this.parentNode.submit();">Logout</a> -->
+				<button type="submit">Logout</button>
+			</form>
+		</div>
+	</footer>
+</body>
+</html>
