@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head>
-<meta charset="UTF-8">
+<head th:replace="layout/plantilla :: head">
 <title>Inicio</title>
 </head>
 <body>
@@ -10,7 +9,6 @@
 	
 	<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/agregar}" th:text="#{persona.crear}">Texto Boton</a>
 	
-	<p th:text="${mensaje}"></p>
 	<br>
 	<div th:if="${personas != null and !personas.empty}">
 		<table border="1">
