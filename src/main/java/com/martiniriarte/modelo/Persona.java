@@ -30,4 +30,7 @@ public class Persona implements Serializable{
 	
 	@Digits(fraction = 0, integer = 7)
 	private String telefono;
+	
+	@NotNull
+	private Double saldo;
 }

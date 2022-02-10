@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Listado Clientes</title>
+</head>
+<body>
+	<section th:fragment="listadoClientes" id="clientes">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9">
+					<div class="card">
+						<div class="card-header">
+							<h4 th:text="#{persona.titulo-lista}"></h4>
+						</div>
+						<div th:if="${personas != null && !personas.empty}">
+							<table class="table table-stryped">
+								<thead class="table-dark">
+									<tr>
+										<th>#</th>
+										<th th:text="#{persona.nombre}"></th>
+										<th th:text="#{persona.saldo}"></th>
+										<th></th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="persona, contador : ${personas}">
+										<td th:text="${contador.count}"></td>
+										<td th:text="${persona.nombre} + ' ' + ${persona.apellido}"></td>
+										<td
+											th:text="${new java.text.DecimalFormat('$#,##0.00').format(persona.saldo)}"></td>
+										<td><a sec:authorize="hasRole('ROLE_ADMIN')"
+											th:href="@{/editar/} + ${persona.idPersona}"
+											class="btn btn-secondary"> <i
+												class="fas fa-angle-double-right"> <th:block
+														th:text="#{accion.editar}"></th:block>
+											</i>
+										</a></td>
+										<td><a sec:authorize="hasRole('ROLE_ADMIN')"
+											th:href="@{/eliminar(idPersona=${persona.idPersona})}"
+											class="btn btn-dark"> <i
+												class="fas fa-angle-double-right"> <th:block
+														th:text="#{accion.eliminar}"></th:block>
+											</i>
+										</a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="text-center p-2" th:if="${personas ==null || personas.empty}">
+							<span th:text="#{persona.lista-vacia}">Lista Vacia</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
