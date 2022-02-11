@@ -4,12 +4,19 @@
 <head th:fragment="head">
 <meta charset="UTF-8">
 <title>Plantilla</title>
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.11.4/datatables.min.css" />
 <link rel="stylesheet"
 	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
 <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/estilo.css}" />
+<script type="text/javascript"
+	src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.11.4/datatables.min.js"></script>
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/dataTable.js}"></script>
+
 
 
 </head>
@@ -48,25 +55,28 @@
 		</nav>
 		<section id="main-header" class="mt-5 py-2 bg-info text-light">
 			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<h1>
+				<div class="row align-items-center">
+					<div class="col-auto">
+						<h1 class="sombra-texto">
 							<i class="fas fa-cog"></i>
 							<th:block th:text="#{plantilla.titulo}"></th:block>
 						</h1>
+					</div>
+					
+					<div class="col text-end">
+						<a class="idioma" th:href="@{/(lang=es)}">ES</a> | <a class="idioma" th:href="@{/(lang=en)}">EN</a>
 					</div>
 				</div>
 			</div>
 		</section>
 	</header>
-	<footer th:fragment="footer" class="bg-warning text-light mt-5 p-5">
+	<footer th:fragment="footer" class="bg-secondary text-light mt-5 p-5">
 		<div class="container">
 			<div class="col">
 				<p class="lead text-center">
-					<a th:href="@{/(lang=es)}">ES</a> | <a th:href="@{/(lang=en)}">EN</a>
-					| <span> <th:block th:text="#{plantilla.pie-pagina}">Pie de Pagina</th:block>&copy; <a
-						href="http://splashingpopcorn.jelastic.saveincloud.net/"
-						target="_blank">Splashingpopcorn.com</a></span>
+					<span> <th:block th:text="#{plantilla.pie-pagina}">Pie de Pagina</th:block>&copy;
+						<a href="http://splashingpopcorn.jelastic.saveincloud.net/"
+						target="_blank">Splashingpopcorn.com</a></span>	
 				</p>
 			</div>
 		</div>

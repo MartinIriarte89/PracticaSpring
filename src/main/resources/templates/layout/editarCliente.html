@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Editar Cliente</title>
+</head>
+<body>
+	<section th:fragment="editarCliente">
+		<form th:action="@{/guardar}" th:object="${persona}" method="post"
+			class="was-validated">
+			<input type="hidden" name=idPersona th:field="*{idPersona}">
+			<section th:replace="layout/botonesEditar :: botonRetroceder"></section>
+			<div id="details">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 col-sm-10 mx-auto">
+							<div class="card sombra-caja">
+								<div class="card-header text-center">
+									<h4>
+										<th:block th:text="#{accion.editar}"></th:block>
+									</h4>
+								</div>
+								<div class="card-body">
+									<div class="mb-3 row">
+										<label for="nombre"
+											class="col-lg-2 col-sm-3 col-form-label text-center"
+											th:text="#{persona.nombre}">Nombre</label>
+										<div class="col-lg-10 col-sm-9">
+											<input type="text" class="form-control" name="nombre"
+												required="required" th:field="*{nombre}">
+										</div>
+									</div>
+									<div class="mb-3 row">
+										<label for="apellido"
+											class="col-lg-2 col-sm-3 col-form-label text-center"
+											th:text="#{persona.apellido}">Apellido</label>
+										<div class="col-lg-10 col-sm-9">
+											<input type="text" class="form-control" name="apellido"
+												required="required" th:field="*{apellido}">
+										</div>
+									</div>
+									<div class="mb-3 row">
+										<label for="email" class="col-lg-2 col-sm-3 col-form-label text-center"
+											th:text="#{persona.email}">Email</label>
+										<div class="col-lg-10 col-sm-9">
+											<input type="email" class="form-control" name="email"
+												required="required" th:field="*{email}">
+										</div>
+									</div>
+									<div class="mb-3 row">
+										<label for="telefono"
+											class="col-lg-2 col-sm-3 col-form-label text-center"
+											th:text="#{persona.telefono}">Telefono</label>
+										<div class="col-lg-10 col-sm-9">
+											<input type="tel" class="form-control" name="telefono"
+												th:field="*{telefono}">
+										</div>
+									</div>
+									<div class="mb-3 row">
+										<label for="saldo" class="col-lg-2 col-sm-3 col-form-label text-center"
+											th:text="#{persona.saldo}">Saldo</label>
+										<div class="col-lg-10 col-sm-9">
+											<input type="number" class="form-control" name="saldo"
+												required="required" step="any" th:field="*{saldo}">
+										</div>
+									</div>
+								</div>
+								<div class="card-footer d-flex">
+									<div class="col-md-3 mx-auto">
+										<button type="submit" class="btn btn-success w-100">
+											<i class="fas fa-check"></i>
+											<th:block th:text="#{accion.guardar}"></th:block>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</section>
+</body>
+</html>

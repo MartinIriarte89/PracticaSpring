@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="layout/plantilla :: head">
 <meta charset="UTF-8">
 <title>Datos de la persona</title>
 </head>
 <body>
 	<header th:replace="layout/plantilla :: header"></header>
-	<h3 th:text="#{persona.formulario.subtitulo}">Subtitulo</h3>
-	<a th:href="@{/}" th:text="#{accion.regresar}"></a>
-	<br>
-	<br>
+	<section th:replace="layout/editarCliente :: editarCliente"></section>
+	<footer th:replace="layout/plantilla :: footer"></footer>
+	
+	<!-- 
 	<form th:action="@{/guardar}" method="post" th:object="${persona}">
 		<input type="hidden" name="idPersona" th:field="*{idPersona}">
 		<label for="nombre" th:text="#{persona.nombre} + ':'">Nombre</label>
@@ -30,6 +31,6 @@
 		<br>
 		<input type="submit" name="guardar" th:value="#{accion.guardar}"></input>
 	</form>
-	<footer th:replace="layout/plantilla :: footer"></footer>
+	 -->
 </body>
 </html>

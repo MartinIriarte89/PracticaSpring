@@ -1,10 +1,76 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Agregar Cliente</title>
 </head>
 <body>
+	<section th:fragment="agregarCliente">
+		<div class="modal fade" id="agregarCliente" tabindex="-1"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header bg-warning text-white">
+						<h5 class="modal-title mx-auto ps-3 h3" id="exampleModalLabel"
+							th:text="#{accion.agregar}">Titulo</h5>
+						<button type="button" class="btn-close m-0"
+							data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form th:action="@{/guardar}" th:object="${persona}" method="post"
+							class="was-validated">
+							<div class="mb-3 row">
+								<label for="nombre" class="col-sm-4 col-form-label text-center"
+									th:text="#{persona.nombre}">Nombre</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="nombre"
+										required="required">
+								</div>
+							</div>
+							<div class="mb-3 row">
+								<label for="apellido"
+									class="col-sm-4 col-form-label text-center"
+									th:text="#{persona.apellido}">Apellido</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="apellido"
+										required="required">
+								</div>
+							</div>
+							<div class="mb-3 row">
+								<label for="email" class="col-sm-4 col-form-label text-center"
+									th:text="#{persona.email}">Email</label>
+								<div class="col-sm-8">
+									<input type="email" class="form-control" name="email"
+										required="required">
+								</div>
+							</div>
+							<div class="mb-3 row">
+								<label for="telefono"
+									class="col-sm-4 col-form-label text-center"
+									th:text="#{persona.telefono}">Telefono</label>
+								<div class="col-sm-8">
+									<input type="tel" class="form-control" name="telefono">
+								</div>
+							</div>
+							<div class="mb-3 row">
+								<label for="saldo" class="col-sm-4 col-form-label text-center"
+									th:text="#{persona.saldo}">Saldo</label>
+								<div class="col-sm-8">
+									<input type="number" class="form-control" name="saldo"
+										required="required" step="any">
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="submit" class="btn btn-primary mx-auto w-25"
+									th:text="#{accion.guardar}">Guardar</button>
+							</div>
+						</form>
+					</div>
 
+				</div>
+			</div>
+		</div>
+	</section>
 </body>
 </html>

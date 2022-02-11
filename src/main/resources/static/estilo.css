@@ -1,0 +1,23 @@
+.idioma{
+	text-decoration: none;
+	color: rgb(55, 55, 55);
+	font-size: 20px;
+	font-weight: 900;
+	text-shadow: 2px 4px 8px rgb(100, 100, 100);
+}
+
+.sombra-texto{
+	text-shadow: 2px 4px 8px rgb(100, 100, 100);
+}
+
+.sombra-caja{
+	box-shadow: 2px 4px 8px rgb(100, 100, 100);
+}
+
+label{
+	font-weight: 700;
+}
+
+#login{
+    min-height: calc(101vh - 375px);
+}

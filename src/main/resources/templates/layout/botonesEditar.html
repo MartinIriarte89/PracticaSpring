@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Botones Editar</title>
+</head>
+<body>
+	<section th:fragment="botonRetroceder">
+		<div id="actions" class="py-4 mb-4 bg-light">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3">
+						<a th:href="@{/}" class="btn btn-light"> <i
+							class="fas fa-arrow-left"></i> <th:block
+								th:text="#{accion.regresar}"></th:block>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
