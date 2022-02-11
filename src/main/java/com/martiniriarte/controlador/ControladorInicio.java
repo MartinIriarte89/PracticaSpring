@@ -40,6 +40,11 @@ public class ControladorInicio {
 		return "index";
 	}
 
+	@GetMapping("/agregar")
+	public String agregar(Persona persona) {
+		return "modificar";
+	}
+
 	@PostMapping("/guardar")
 	public String guardar(@Valid Persona persona, Errors errores) {
 		if (errores.hasErrors()) {

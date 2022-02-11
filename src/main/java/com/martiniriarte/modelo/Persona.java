@@ -28,7 +28,6 @@ public class Persona implements Serializable{
 	@Email
 	private String email;
 	
-	@Digits(fraction = 0, integer = 7)
 	private String telefono;
 	
 	@NotNull
